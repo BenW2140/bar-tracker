@@ -10,9 +10,9 @@ function EditBrewForm(props) {
     props.onEditBrew({
       name: event.target.name.value,
       brand: event.target.brand.value,
-      price: event.target.price.value,
-      alcoholContent: event.target.alcoholContent.value,
-      pints: event.target.pints.value,
+      price: parseInt(event.target.price.value),
+      alcoholContent: parseInt(event.target.alcoholContent.value),
+      pints: parseInt(event.target.pints.value),
       id: brew.id
     });
   }
