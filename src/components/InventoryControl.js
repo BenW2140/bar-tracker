@@ -59,10 +59,10 @@ class InventoryControl extends React.Component {
     });
   }
 
-  handleEditingSelectedBrew = (ticketToEdit) => {
+  handleEditingSelectedBrew = (brewToEdit) => {
     const editedMasterListOfBrews = this.state.masterListOfBrews
       .filter(brew => brew.id !== this.state.selectedBrew.id)
-      .concat(ticketToEdit);
+      .concat(brewToEdit);
     this.setState({
       masterListOfBrews: editedMasterListOfBrews,
       selectedBrew: null,
@@ -81,7 +81,7 @@ class InventoryControl extends React.Component {
       currentlyVisibleState = <EditBrewForm brew = {this.state.selectedBrew} onEditBrew = {this.handleEditingSelectedBrew} />
       buttonText = "View Inventory";
     } else if (this.state.selectedBrew != null) {
-      currentlyVisibleState = <BrewDetail brew = {this.state.selectedBrew} onClickingDelete = {this.handleBrewRemoval} onClickingEdit = {this.handleEditBrew} />
+      currentlyVisibleState = <BrewDetail brew = {this.state.selectedBrew} onClickingDelete = {this.handleBrewRemoval} onClickingEdit = {this.handleEditBrew} onClickingSell = {this.handleBrewSale} />
       buttonText = "View Inventory";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewBrewForm onNewBrewCreation = {this.handleAddingBrew} />
