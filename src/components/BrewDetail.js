@@ -10,7 +10,7 @@ function BrewDetail(props) {
       <p>${brew.price}</p>
       <p>{brew.alcoholContent}%</p>
       <p>Pints: {brew.pints}</p>
-      <button onClick = {onClickingSell}>Sell Pint</button>
+      <button onClick = {() => onClickingSell(brew.id)}>Sell Pint</button>
       <button onClick = {onClickingEdit}>Edit Brew</button>
       <button onClick = {() => onClickingDelete(brew.id)}>Remove Brew</button>
       <hr />

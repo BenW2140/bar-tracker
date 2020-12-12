@@ -70,13 +70,15 @@ class InventoryControl extends React.Component {
     });
   }
 
-  handleBrewSale = (soldBrew) => {
-    soldBrew
-    const selectedBrew = this.state.masterListOfBrews
-      .filter(brew => brew.id !== this.state.selectedBrew.id)
+  handleBrewSale = (id) => {
+    const soldBrew = this.state.masterListOfBrews.filter(brew => brew.id === id)[0];
+    soldBrew.pints--;
+    const editedMasterListOfBrews = this.state.masterListOfBrews
+      .filter(brew => brew.id !== id)
       .concat(soldBrew);
-    
-
+    this.setState({
+      masterListOfBrews: editedMasterListOfBrews
+    });
   }
 
   render() {
